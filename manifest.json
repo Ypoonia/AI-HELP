@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "AI Help Extension",
+  "version": "0.1",
+  "author": "Varun Somani",
+  "description": "A Chrome Extension that provides AI assistance on maang.in",
+  "permissions": ["storage", "tabs", "activeTab", "scripting", "declarativeContent"],
+  "content_scripts": [
+    {
+      "matches": ["https://maang.in/*"],
+      "js": ["libs/marked.min.js", "content.js"],
+      "css": ["content-styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/ai-help.png",
+        "assets/download.png",
+        "assets/copy.png",
+        "assets/check.png",
+        "assets/download_white.png",
+        "assets/ai-help-white.png",
+        "inject.js",
+        "content-styles.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "AI Help Extension"
+  }
+}
+
